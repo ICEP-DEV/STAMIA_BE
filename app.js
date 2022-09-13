@@ -8,6 +8,8 @@ const app = express();
 
 //2 REQUIRE ROUTES (WHICH WE DO NOT HAVE YET)
 const learnerRoute = require('./routes/learnerRoute');
+const loginRoute = require('./routes/loginRoute');
+
 
 //3 APP.USE MIDDLEWARE
 app.use(express.json());
