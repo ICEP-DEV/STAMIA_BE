@@ -17,6 +17,7 @@ app.options('*', cors());
 
 //4 CREATE API URL
 app.use('/api/learner', learnerRoute);
+app.use('/api/login', loginRoute);
 
 
 app.use(globalErrHandler);
