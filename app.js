@@ -23,6 +23,14 @@ app.use('/api/learner', learnerRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/subject',subjectRoute);
 
+app.get('/',(req,res) => {
+    session=req.session;
+    if(session.userid){
+        res.json("Welcome to STEMIA!!");
+    }else
+    res.json("Please login to STEMIA fisrt!! ");
+});
+
 
 
 app.use(globalErrHandler);
