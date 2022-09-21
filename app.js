@@ -23,6 +23,8 @@ app.use('/api/learner', learnerRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/subject',subjectRoute);
 
+var session;
+
 app.get('/',(req,res) => {
     session=req.session;
     if(session.userid){
