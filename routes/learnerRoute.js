@@ -6,7 +6,7 @@ router
     .route("/")
     .post(learnerController.createLearner)
 router.get('/', function(req, res, next) {
-        res.send('respond with a resource');
+        res.send('Welcome to STEMIA please login using your email & password');
       })
 
 module.exports = router;
