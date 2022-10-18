@@ -29,8 +29,7 @@ do {
     // Generating random number
     const randomNumber = Math.floor(Math.random() * quiz.length)
   
-    // Pushing into the array only 
-    // if the array does not contain it
+    // Pushing into the array only if the array does not contain it
     if (!questions.includes(randomNumber)) {
         questions.push(randomNumber);
     }
