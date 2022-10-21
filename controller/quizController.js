@@ -97,7 +97,7 @@ res.status(202).json(quiz[questions[index]]);
              console.log(percentage)
                 res.status(200).json({
              status:"success",
-             message:"mark added successfuly",
+             message:"marks added successfuly",
              percentage
      
          })
@@ -106,10 +106,10 @@ res.status(202).json(quiz[questions[index]]);
 
   exports.getQuestion = catchAsync(async(req, res, next)=>{
    const quizName = req.body.quizName;
+   const subjectName = req.body.subjectName;
 
-
-   const question  = await quizModel.findAll({attributes: ["quizName", "subjectName" , "question","answer","learnerAnswer","mark"],
-  where: ({quizName: quizName})})
+   const question  = await quizModel.findAll({attributes: [ "question","answer","learnerAnswer","mark"],
+  where: ({quizName: quizName, subjectName: subjectName})})
    res.status(200).json({
        status:"success",
        message:"selected",
