@@ -22,7 +22,7 @@ var questions=[];
     const question = req.body.question;
 
   const quiz  = await quizModel.findAll({attributes: ["quizName", "subjectName" , "question"],
-  where: ({quizName: quizName})})
+  where: ({quizName: quizName, subjectName: subjectName})})
 
 
 do {
