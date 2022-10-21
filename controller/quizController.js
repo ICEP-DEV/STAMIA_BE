@@ -76,11 +76,11 @@ res.status(202).json(quiz[questions[index]]);
        var percentage = 0;
         exports.getMark = catchAsync(async(req, res, next)=>{
          const quizName = req.body.quizName;
-     
+         const subjectName = req.body.subjectName;
          const mark = await quizModel.findAll({
             attributes:[
                (sequelize.col('mark'))],
-         where: ({quizName: quizName}),
+         where: ({quizName: quizName, subjectName:subjectName}),
          group : ['quiz.quizId'],
          raw: true})
      
