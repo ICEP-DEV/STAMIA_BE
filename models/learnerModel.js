@@ -7,20 +7,25 @@ const learner = sequelize.define('learner',{
         autoIncrement: true,
     },
 
-    name:{
+    fullname:{
         type: Sequelize.STRING,
         allowNull: false,
     },
-    surname:{
-        type:Sequelize.STRING,
-        allowNull: false,
-    },
+   
     email:{
         type:Sequelize.STRING,
         allowNull: false,
     },
+    age:{
+         type:Sequelize.INTEGER,
+        allowNull: false,
+    },
     school:{
         type:Sequelize.STRING,
+         allowNull: false,
+    },
+     grade:{
+         type:Sequelize.INTEGER,
         allowNull: false,
     },
     password:{
