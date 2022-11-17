@@ -12,6 +12,7 @@ const quizRoute = require('./routes/quizRoute');
 const markRoute = require('./routes/markRoute');
 const questionRoute = require('./routes/questionRoute');
 const loginRoute = require('./routes/loginRoute');
+const faqRoute = require('./routes/faqRoute');
 
 //3 APP.USE MIDDLEWARE
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use('/api/quiz', quizRoute);
 app.use('/api/mark',markRoute);
 app.use('/api/question',questionRoute);
 app.use('/api/login',loginRoute);
+app.use('/api/faq',faqRoute);
 
 
 app.use(globalErrHandler);
