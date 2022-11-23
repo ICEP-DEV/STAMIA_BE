@@ -13,6 +13,7 @@ const app = express();
 const learnerRoute = require('./routes/learnerRoute');
 const loginRoute = require('./routes/loginRoute');
 const subjectRoute = require('./routes/subjectRoute');
+const eventsRoute = require('./routes/eventsRoute');
 
 
 
@@ -26,6 +27,7 @@ app.use(cors());
 app.use('/api/learner/', learnerRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/subject',subjectRoute);
+app.use('/api/event', eventsRoute);
 
 
 
