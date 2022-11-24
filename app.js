@@ -13,6 +13,7 @@ const markRoute = require('./routes/markRoute');
 const questionRoute = require('./routes/questionRoute');
 const loginRoute = require('./routes/loginRoute');
 const faqRoute = require('./routes/faqRoute');
+const getByGradeRoute = require('./routes/getByGradeRoute');
 
 //3 APP.USE MIDDLEWARE
 app.use(express.json());
@@ -27,6 +28,7 @@ app.use('/api/mark',markRoute);
 app.use('/api/question',questionRoute);
 app.use('/api/login',loginRoute);
 app.use('/api/faq',faqRoute);
+app.use('/api/grade',getByGradeRoute);
 
 
 app.use(globalErrHandler);

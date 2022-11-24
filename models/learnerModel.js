@@ -23,6 +23,10 @@ const learner = sequelize.define('learner',{
         type:Sequelize.STRING,
         allowNull: false,
     },
+    grade:{
+        type:Sequelize.INTEGER,
+        allowNull: false,
+    },
     password:{
         type:Sequelize.STRING,
         allowNull: false,

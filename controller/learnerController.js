@@ -2,7 +2,7 @@
 const learnerModel = require('../models/learnerModel');
 const catchAsync = require('../utils/catchAsync');
 
-//CREATE USERTYPE
+//CREATE USERTYPE (registration)
 exports.createLearner = catchAsync(async(req, res, next)=>{
     const learner = await learnerModel.create(req.body);
     //INSERT INTO [tablename] VALUES...
@@ -12,10 +12,36 @@ exports.createLearner = catchAsync(async(req, res, next)=>{
         learner
     })
 });
-exports.getLearner = catchAsync(async(req, res, next)=>{
-    const learner  = await learnerModel.findAll()
-})
 
+// get all the learners for admin
+exports.getLearner = catchAsync(async(req, res, next)=>{
+ 
+    const learners  = await learnerModel.findAll()
+    res.status(200).json({
+        status:"success",
+        message:"selected*",
+        learners
+    })
+ })
+   
+//get all the learners by grade
+
+ 
+exports.getGrade = catchAsync(async(req, res, next) =>{
+
+      const grade = req.body.grade;
+      console.log(grade)
+
+     const grades = await learnerModel.findAll({
+     where: ({grade: grade})})
+
+     res.status(200).json({
+        status:"success",
+        message:"learners selected",
+        grades
+    })
+})
+  
 //update new password if a learner reset password
 exports.updatePassword = catchAsync(async(req, res, next)=>{
     const password = req.body.password;
@@ -36,7 +62,7 @@ exports.updatePassword = catchAsync(async(req, res, next)=>{
                  updatePassword
              })
         
-     }else{
+     }else{     
         return res.status(200).json("Email does not exist")
      }
     

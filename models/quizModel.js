@@ -11,10 +11,7 @@ const quiz = sequelize.define('quiz',{
         type: Sequelize.STRING,
         allowNull: false,
     },
-    subjectName:{
-        type:Sequelize.STRING,
-        allowNull: false,
-    },
+    
     question:{
         type:Sequelize.STRING,
         allowNull: false,

@@ -18,11 +18,11 @@ var questions=[];
  //READ QUIZ
  exports.getQuiz = catchAsync(async(req, res, next)=>{
     const quizName = req.body.quizName;
-    const subjectName = req.body.subjectName;
+    //const subjectName = req.body.subjectName;
     const question = req.body.question;
 
-  const quiz  = await quizModel.findAll({attributes: ["quizName", "subjectName" , "question"],
-  where: ({quizName: quizName, subjectName: subjectName})})
+  const quiz  = await quizModel.findAll({attributes: ["quizName" , "question"],
+  where: ({quizName: quizName})})
 
 
 do {
@@ -51,7 +51,7 @@ res.status(202).json(quiz[questions[index]]);
         const learnerAnswer = req.body.learnerAnswer;
         const question = req.body.question;
         const quizName = req.body.quizName;
-        const subjectName = req.body.subjectName;
+        //const subjectName = req.body.subjectName;
 
         var score = 0;
   
@@ -61,7 +61,7 @@ res.status(202).json(quiz[questions[index]]);
         }
 
           const updateAnswer  = await quizModel.update({learnerAnswer: learnerAnswer, mark:score},
-       {where: ({quizName: quizName, subjectName:subjectName, question: question, answer:answer})})
+       {where: ({quizName: quizName, question: question, answer:answer})})
     
          res.status(200).json({
             status:"success",
@@ -76,11 +76,11 @@ res.status(202).json(quiz[questions[index]]);
        var percentage = 0;
         exports.getMark = catchAsync(async(req, res, next)=>{
          const quizName = req.body.quizName;
-         const subjectName = req.body.subjectName;
+         //const subjectName = req.body.subjectName;
          const mark = await quizModel.findAll({
             attributes:[
                (sequelize.col('mark'))],
-         where: ({quizName: quizName, subjectName:subjectName}),
+         where: ({quizName: quizName}),
          group : ['quiz.quizId'],
          raw: true})
      
@@ -106,10 +106,10 @@ res.status(202).json(quiz[questions[index]]);
 
   exports.getQuestion = catchAsync(async(req, res, next)=>{
    const quizName = req.body.quizName;
-   const subjectName = req.body.subjectName;
+   
 
    const question  = await quizModel.findAll({attributes: [ "question","answer","learnerAnswer","mark"],
-  where: ({quizName: quizName, subjectName: subjectName})})
+  where: ({quizName: quizName})})
    res.status(200).json({
        status:"success",
        message:"selected",
