@@ -16,3 +16,5 @@ const event = sequelize.define('event',{
         allowNull: false,
     }
 })
+
+module.exports = event;
