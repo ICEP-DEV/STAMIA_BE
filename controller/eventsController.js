@@ -1,26 +1,25 @@
 //CRUD - Create, Read, Update Delete
-const event = require('../models/eventsModel');
-const eventModel = require('../models/eventsModel');
+const events = require('../models/eventsModel');
+const eventsModel = require('../models/eventsModel');
 const catchAsync = require('../utils/catchAsync');
 
 //CREATE event
 exports.createEvent = catchAsync(async(req, res, next)=>{
-    const event = await eventModel.create(req.body);
+    const events = await eventsModel.create(req.body);
     //INSERT INTO [tablename] VALUES...
     res.status(200).json({
         status:"success",
         message: "Event Created Successfully",
-        event
+        events
     })
 });
 
-
 //Getting all events
-exports.getAll = (req, res) => {
+exports.findAll = (req, res) => {
     const eventId = req.query.eventId;
     var condition = eventId ? {eventId : { [Op.like]: `%${eventId}%` } } : null;
   
-    event.findAll({ where: condition })
+    events.findAll({ where: condition })
       .then(data => {
         res.send(data);
       })
@@ -36,7 +35,7 @@ exports.getAll = (req, res) => {
   exports.getEventById = (req, res) => {
     const eventId = req.params.eventId;
   
-    event.findByPk(userId)
+    events.findByPk(userId)
       .then(data => {
         if (data) {
           res.send(data);
@@ -58,7 +57,7 @@ exports.getAll = (req, res) => {
   exports.updateEvent = (req, res) => {
     const eventId = req.params.eventId;
   
-    event.update(req.body, {
+    events.update(req.body, {
       where: { eventId: eventId }
     })
       .then(num => {
@@ -83,7 +82,7 @@ exports.getAll = (req, res) => {
   exports.deleteById = (req, res) => {
     const eventId = req.params.eventId;
   
-    event.destroy({
+    events.destroy({
       where: { eventId: eventId }
     })
       .then(num => {
@@ -108,7 +107,7 @@ exports.getAll = (req, res) => {
 
   //Deleting all events
   exports.deleteAll = (req, res) => {
-    event.destroy({
+    events.destroy({
       where: {},
       truncate: false
     })
