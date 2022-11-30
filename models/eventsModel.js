@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/db');
-const event = sequelize.define('event',{
+const events = sequelize.define('events',{
     eventId:{
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -17,4 +17,4 @@ const event = sequelize.define('event',{
     }
 })
 
-module.exports = event;
+module.exports = events;
