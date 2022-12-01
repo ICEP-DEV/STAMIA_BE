@@ -24,7 +24,7 @@ var questions=[];
   const quiz  = await quizModel.findAll({attributes: ["quizName" , "question"],
   where: ({quizName: quizName})})
 
-
+console.log(req.session)
 do {
     // Generating random number
     const randomNumber = Math.floor(Math.random() * quiz.length)
