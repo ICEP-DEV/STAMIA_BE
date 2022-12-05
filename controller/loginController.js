@@ -13,7 +13,7 @@ exports.compareLogin = catchAsync(async(req,res,next)=>{
 
 
     if(!LoginData)
-     return res.json({message:"LEARNER EMAIL "});
+     return res.json({message:"LEARNER EMAIL OR PASSWORD DOES NOT MATCH"});
 
     if(LoginData.password !==password)
      return res.json({message:"LEARNER PASSWORD DOES NOT MATCH "});
